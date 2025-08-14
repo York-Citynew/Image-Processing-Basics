@@ -1,2 +1,2 @@
 # Image-Processing-Basics
-This repository is a compilation of my older image processing implementations.
+This repository is a compilation of some basic image processing implementations.
