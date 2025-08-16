@@ -15,7 +15,7 @@ You can load images or use your camera feed, apply various processing techniques
 * **Windowing**
 * **Template Matching**
 * **Camera Capture**
-* **Edge Detection**
+* **Edge Detection(Blur before use)**
 * **Brightness & Contrast Control**
 * **Noise Addition (Gaussian & Salt & Pepper)**
 * **Filtering (Gaussian, Median, Bilateral, Average, Sharpen)**
@@ -28,7 +28,7 @@ You can load images or use your camera feed, apply various processing techniques
 | ------ | ------------------------------------------------- |
 | **h**  | Toggle histogram                                  |
 | **w**  | Toggle windowing                                  |
-| **e**  | Toggle histogram equalization & cycle edge method |
+| **W**  | Toggle histogram equalization                     |
 | **t**  | Toggle template matching                          |
 | **c**  | Toggle camera & reset cursor to `(0,0)`           |
 | **q**  | Quit program                                      |
