@@ -1,39 +1,39 @@
 # Image Processing Basics
-This repository contains a collection of basic image processing techniques implemented in Python using OpenCV and NumPy.
-It serves as an interactive playground to explore and experiment with fundamental concepts like filtering, histogram operations, edge detection, and noise manipulation.
-## Note:
-If you want to dive deeper into image processing theory, explore more advanced algorithms, or see older experiments, please check my archived image processing repositories for additional explanations, implementation details, and references.
+
+An **interactive playground for image processing** using **Python, OpenCV, and NumPy**.
+Load an image or use your camera feed, then tweak filters, add noise, run template matching, thresholding, and edge detection — all via **keyboard shortcuts**.
 
 ---
 
-The program allows real-time adjustments via keyboard shortcuts.
-You can load images or use your camera feed, apply various processing techniques, and fine-tune parameters interactively.
+## Features
 
-### **Core Functionalities**
-
-* **Histogram Display & Equalization**
-* **Windowing**
-* **Template Matching**
-* **Camera Capture**
-* **Edge Detection(Blur before use)**
-* **Brightness & Contrast Control**
-* **Noise Addition (Gaussian & Salt & Pepper)**
-* **Filtering (Gaussian, Median, Bilateral, Average, Sharpen)**
+* **Histogram Operations** – live histogram + histogram equalization
+* **Brightness & Contrast** – real-time adjustment
+* **Noise** – Gaussian; Salt & Pepper
+* **Filtering** – Gaussian, Median, Average, Bilateral, Sharpen
+* **Windowing** – with preset confidence (default `0.8`)
+* **Template Matching** – uses different templates for camera/image modes
+* **Thresholding** – cycle through presets
+* **Edge Detection** – multiple methods with tunable parameters
+* **Boundary Extraction**
 
 ---
 
 ## Controls
 
-| Key(s) | Action                                            |
-| ------ | ------------------------------------------------- |
-| **h**  | Toggle histogram                                  |
-| **w**  | Toggle windowing                                  |
-| **W**  | Toggle histogram equalization                     |
-| **t**  | Toggle template matching                          |
-| **c**  | Toggle camera & reset cursor to `(0,0)`           |
-| **q**  | Quit program                                      |
+### General
 
-### **Adjustments**
+| Key(s) | Action                                   |
+| ------ | ---------------------------------------- |
+| **h**  | Toggle histogram                         |
+| **w**  | Toggle windowing                         |
+| **W**  | Toggle histogram equalization            |
+| **t**  | Toggle template matching                 |
+| **c**  | Toggle camera (resets cursor to `(0,0)`) |
+| **o**  | Toggle boundary extraction               |
+| **q**  | Quit program                             |
+
+### Adjustments
 
 | Key(s)    | Action                                  | Range       |
 | --------- | --------------------------------------- | ----------- |
@@ -42,30 +42,51 @@ You can load images or use your camera feed, apply various processing techniques
 | **G / g** | Increase / decrease Gaussian noise      | 0 … 10      |
 | **P / p** | Increase / decrease Salt & Pepper noise | 0 … 10      |
 
-### **Filters**
+### Filters
 
-| Key(s)    | Filter    | Kernel Size Range |
-| --------- | --------- | ----------------- |
-| **Z / z** | Gaussian  | min 1             |
-| **M / m** | Median    | min 1             |
-| **L / l** | Bilateral | min 1             |
-| **A / a** | Average   | min 1             |
-| **S / s** | Sharpen   | min 1             |
+| Key(s)    | Filter    | Kernel Size |
+| --------- | --------- | ----------- |
+| **Z / z** | Gaussian  | odd, ≥ 1    |
+| **M / m** | Median    | odd, ≥ 1    |
+| **A / a** | Average   | odd, ≥ 1    |
+| **L / l** | Bilateral | odd, ≥ 1    |
+| **S / s** | Sharpen   | odd, ≥ 1    |
 
-### **Bilateral Filter Parameters**
+#### Bilateral parameters
 
 | Key(s)     | Parameter        | Range  |
 | ---------- | ---------------- | ------ |
 | **+ / =**  | sigmaColor + / − | 0 … 10 |
-| **\_ / -** | sigmaSpace + / − | 0 … 10 |
-
-### **Edge Detection**
-
-| Key(s)    | Action                               | Notes                 |                                  |
-| --------- | ------------------------------------ | --------------------- | -------------------------------- |
-| \*\*      | \*\*                                 | Next threshold preset | Cycles through available options |
-| **} / ]** | Increase / decrease edge kernel size | min 3                 |                                  |
+| **- / \_** | sigmaSpace − / + | 0 … 10 |
 
 ---
 
-* More parts will be added...
+## Thresholding
+
+Cycle through the following presets:
+
+**Available methods:** `off`, `mean`, `median`, `otsu`, `adaptive`
+
+| Key(s) | Action                                                    |
+| ------ | --------------------------------------------------------- |
+| **\|** | Cycle thresholding preset (Shift + `\` on most keyboards) |
+
+The current selection is shown on-screen (e.g., `threshold=mean`).
+
+---
+
+## Edge Detection
+
+**Available methods:** `off`, `sobel`, `canny`, `laplacian`
+
+| Key(s)    | Action                                       | Notes                |
+| --------- | -------------------------------------------- | -------------------- |
+| **e**     | Cycle edge detection method                  | Shows name on-screen |
+| **} / ]** | Increase / decrease edge kernel size         | odd, min 3           |
+| **0 / )** | Decrease / increase **Canny** high threshold | ≥ 0                  |
+| **9 / (** | Decrease / increase **Canny** low threshold  | ≥ 0                  |
+| **' / "** | Decrease / increase **Laplacian** threshold  | step = 0.05          |
+
+> Tip: A light blur before edge detection often improves results.
+
+---
