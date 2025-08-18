@@ -1,7 +1,7 @@
 # Image Processing Basics
 
 An **interactive playground for image processing** using **Python, OpenCV, and NumPy**.
-Load an image or use your camera feed, then tweak filters, add noise, run template matching, thresholding, and edge detection — all via **keyboard shortcuts**.
+Load an image or use your camera feed, then tweak filters, add noise, run template matching, thresholding, edge detection, and Hough transform fitting — all via **keyboard shortcuts**.
 
 ---
 
@@ -16,6 +16,7 @@ Load an image or use your camera feed, then tweak filters, add noise, run templa
 * **Thresholding** – cycle through presets
 * **Edge Detection** – multiple methods with tunable parameters
 * **Boundary Extraction**
+* **Hough Transform Fitting** – adjustable resolution and thresholds
 
 ---
 
@@ -26,6 +27,7 @@ Load an image or use your camera feed, then tweak filters, add noise, run templa
 | Key(s) | Action                                   |
 | ------ | ---------------------------------------- |
 | **h**  | Toggle histogram                         |
+| **H**  | Cycle Hough transform mode               |
 | **w**  | Toggle windowing                         |
 | **W**  | Toggle histogram equalization            |
 | **t**  | Toggle template matching                 |
@@ -90,3 +92,14 @@ The current selection is shown on-screen (e.g., `threshold=mean`).
 > Tip: A light blur before edge detection often improves results.
 
 ---
+
+## Hough Transform
+
+**Available modes:** `off`, line/curve fitting modes (shown on-screen)
+
+| Key(s)    | Action                                        | Notes                |
+| --------- | --------------------------------------------- | -------------------- |
+| **H**     | Cycle Hough transform mode                    | Shows name on-screen |
+| **r / R** | Decrease / increase rho (distance) resolution | min 1                |
+| **; / :** | Decrease / increase degree resolution         | min 1                |
+| **/ / ?** | Decrease / increase Hough threshold (votes)   | min 1
