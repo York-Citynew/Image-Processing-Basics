@@ -1,6 +1,6 @@
 # Image Processing Basics
 
-An **interactive playground for image processing** using **Python, OpenCV, and NumPy**.
+An **interactive playground for image processing** using **Python, OpenCV, and NumPy**.  
 Load an image or use your camera feed, then tweak filters, add noise, run template matching, thresholding, edge detection, and Hough transform fitting — all via **keyboard shortcuts**.
 
 ---
@@ -24,16 +24,17 @@ Load an image or use your camera feed, then tweak filters, add noise, run templa
 
 ### General
 
-| Key(s) | Action                                   |
-| ------ | ---------------------------------------- |
-| **h**  | Toggle histogram                         |
-| **H**  | Cycle Hough transform mode               |
-| **w**  | Toggle windowing                         |
-| **W**  | Toggle histogram equalization            |
-| **t**  | Toggle template matching                 |
-| **c**  | Toggle camera (resets cursor to `(0,0)`) |
-| **o**  | Toggle boundary extraction               |
-| **q**  | Quit program                             |
+| Key(s)      | Action                                   |
+| ----------- | ---------------------------------------- |
+| **h**       | Toggle histogram                         |
+| **H**       | Cycle Hough transform mode               |
+| **w**       | Toggle windowing                         |
+| **W**       | Toggle histogram equalization            |
+| **t**       | Toggle template matching                 |
+| **c**       | Toggle camera (resets cursor to `(0,0)`) |
+| **o**       | Toggle boundary extraction               |
+| **q**       | Quit program                             |
+| **Right Click** | Save the current image/frame to the directory of the notebook |
 
 ### Adjustments
 
@@ -79,15 +80,13 @@ The current selection is shown on-screen (e.g., `threshold=mean`).
 
 ## Edge Detection
 
-**Available methods:** `off`, `sobel`, `canny`, `laplacian`
-
-| Key(s)    | Action                                       | Notes                |
-| --------- | -------------------------------------------- | -------------------- |
-| **e**     | Cycle edge detection method                  | Shows name on-screen |
-| **} / ]** | Increase / decrease edge kernel size         | odd, min 3           |
-| **0 / )** | Decrease / increase **Canny** high threshold | ≥ 0                  |
-| **9 / (** | Decrease / increase **Canny** low threshold  | ≥ 0                  |
-| **' / "** | Decrease / increase **Laplacian** threshold  | step = 0.05          |
+| Key(s)    | Action                                       | Notes                  |
+| --------- | -------------------------------------------- | ---------------------- |
+| **e**     | Cycle edge detection method                  | Sobel, Canny, Laplacian|
+| **} / ]** | Increase / decrease edge kernel size         | 7 ≥ k ≥ 3              |
+| **0 / )** | Decrease / increase **Canny** high threshold | ≥ 0                    |
+| **9 / (** | Decrease / increase **Canny** low threshold  | ≥ 0                    |
+| **' / "** | Decrease / increase **Laplacian** threshold  | step = 0.05            |
 
 > Tip: A light blur before edge detection often improves results.
 
@@ -95,11 +94,9 @@ The current selection is shown on-screen (e.g., `threshold=mean`).
 
 ## Hough Transform
 
-**Available modes:** `off`, line/curve fitting modes (shown on-screen)
-
 | Key(s)    | Action                                        | Notes                |
 | --------- | --------------------------------------------- | -------------------- |
-| **H**     | Cycle Hough transform mode                    | Shows name on-screen |
+| **H**     | Cycle Hough transform mode                    | Line, Circle         |
 | **r / R** | Decrease / increase rho (distance) resolution | min 1                |
 | **; / :** | Decrease / increase degree resolution         | min 1                |
-| **/ / ?** | Decrease / increase Hough threshold (votes)   | min 1
+| **/ / ?** | Decrease / increase Hough threshold (votes)   | min 1                |
