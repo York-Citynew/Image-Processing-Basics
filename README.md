@@ -1,7 +1,7 @@
 # Image Processing Basics
 
 An **interactive playground for image processing** using **Python, OpenCV, and NumPy**.  
-Load an image or use your camera feed, then tweak filters, add noise, run template matching, thresholding, edge detection, and Hough transform fitting — all via **keyboard shortcuts**.
+Load an image or use your camera feed, then tweak filters, add noise, run template matching, thresholding, edge detection, Hough transform fitting, and perspective transformations — all via **keyboard shortcuts**.
 
 ---
 
@@ -17,6 +17,7 @@ Load an image or use your camera feed, then tweak filters, add noise, run templa
 * **Edge Detection** – multiple methods with tunable parameters
 * **Boundary Extraction**
 * **Hough Transform Fitting** – adjustable resolution and thresholds
+* **Perspective Transformation** – interactive adjustment of transformation matrix
 
 ---
 
@@ -84,8 +85,8 @@ The current selection is shown on-screen (e.g., `threshold=mean`).
 | --------- | -------------------------------------------- | ---------------------- |
 | **e**     | Cycle edge detection method                  | Sobel, Canny, Laplacian|
 | **} / ]** | Increase / decrease edge kernel size         | 7 ≥ k ≥ 3              |
-| **0 / )** | Decrease / increase **Canny** high threshold | ≥ 0                    |
-| **9 / (** | Decrease / increase **Canny** low threshold  | ≥ 0                    |
+| **. / >** | Decrease / increase **Canny** high threshold | ≥ 0                    |
+| **, / <** | Decrease / increase **Canny** low threshold  | ≥ 0                    |
 | **' / "** | Decrease / increase **Laplacian** threshold  | step = 0.05            |
 
 > Tip: A light blur before edge detection often improves results.
@@ -100,3 +101,15 @@ The current selection is shown on-screen (e.g., `threshold=mean`).
 | **r / R** | Decrease / increase rho (distance) resolution | min 1                |
 | **; / :** | Decrease / increase degree resolution         | min 1                |
 | **/ / ?** | Decrease / increase Hough threshold (votes)   | min 1                |
+
+---
+
+## Perspective Transformation
+- Decrease: Key
+- Increase: Shift+Key
+
+|                    |                    |            |
+| ------------------ | ------------------ | ---------- |
+| a = **7 / &** | b = **8 / \*** | tx = **9 / (** |
+| c = **4 / $** | d = **5 / %** | ty = **6 / ^** |
+| d1 = **1 / !** | d2 = **2 / @** | 1 (fixed) |
